@@ -1,0 +1,76 @@
+#define sonic                     \
+    ios_base::sync_with_stdio(0); \
+    cin.tie(0);                   \
+    cout.tie(0);
+#define io_files                      \
+    freopen("input.txt", "r", stdin); \
+    freopen("output.txt", "w", stdout); // *required
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define pub(x, y) (x).push_back(y)
+#define ppb(x) (x).pop_back()
+#define ff first
+#define ss second
+#define nl '\n'
+#define sz(x) (int)x.size()
+#define yes cout << "YES" << '\n'
+#define no cout << "NO" << '\n'
+#define Minus cout << -1 << '\n'
+#define all(x) (x).begin(), (x).end()
+#define Unique(x) (x).erase(unique(all(x)), (x).end()) // *required sorted
+
+int main()
+{
+    sonic;
+
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        int n;
+        cin >> n;
+
+        vector<int> v(n);
+        map<int, int> mp;
+        for (int i = 0; i < n; i++)
+        {
+            cin >> v[i];
+            mp[v[i]]++;
+        }
+
+        vector<int> v2;
+        bool flag = false;
+
+        for (auto [x, y] : mp)
+        {
+            int i = 0;
+            if (y > 1)
+            {
+                int cnt = y - 1;
+                flag = true;
+                while (cnt--)
+                {
+                    v2.push_back(x);
+                }
+                break;
+            }
+        }
+
+        if (flag)
+        {
+            cout << v2.size() << nl;
+            for (int val : v2)
+            {
+                cout << val << " ";
+            }
+            cout << nl;
+        }
+        else
+        {
+            cout << "-1\n";
+        }
+    }
+    return 0;
+}
